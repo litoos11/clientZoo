@@ -1,0 +1,101 @@
+/* You can add global styles to this file, and also import other style files */
+
+.navigation.col-lg-12{
+  margin-top: 1rem;
+}
+
+.jumbotron{
+  padding: 3rem;
+  border-radius: 0.5rem;
+  background-color: #ccc;
+  box-shadow: 2px 4px 1px #333;
+}
+
+.navbar-nav .active{
+  border-bottom: 2px solid orange;
+}
+
+.navbar-default .navbar-nav>li>a:hover{
+  transition: all 300ms;
+  border-bottom: 2px solid orange;
+}
+
+.boton_transiciones{
+  padding: .8rem;
+  background: red;
+  color: white;
+  border-radius: 1.25rem;
+  border: 0.25rem solid green;
+  transition: border 2s, border-radius 500ms, background 5s;
+  display: inline-block;
+  width: 200px;
+}
+
+.boton_transiciones:hover{
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  background: orange;
+  border-radius: 2px;
+  border: 1px solid red;
+}
+
+.caja_animada{
+  background: green;
+  border: 5px solid black;
+  width: 200px;
+  height: 200px;
+  margin-top: 1rem;
+  /*animation-name: deslizamiento;*/
+ /* animation-name: rotacion;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;*/
+}
+
+/*@keyframes rotacion{
+  0% {
+    margin-left: 0px;
+    transform: rotate(360deg);
+  }
+  50% {
+    margin-left: 600px;
+    transform: rotate(0deg);
+  }
+  100% {
+    margin-left: 0px;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes deslizamiento2{
+  0% {
+    margin-left: 0px;
+  }
+  25% {
+    margin-left: 400px;
+    background: red;
+  }
+  50%{
+    border-radius: 1000px;
+  }
+  75% {
+    margin-left: 0px;
+    background: yellow;
+    border-radius: 0px;
+  }
+  100% {
+    margin-left: 0px;
+    background: green;
+  }
+}
+
+@keyframes deslizamiento1{
+  from {
+    margin-left: 0px;
+  }
+  to {
+    margin-left: 400px;
+    background: red;
+  }
+}
+*/
