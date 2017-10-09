@@ -12,7 +12,12 @@
 }
 
 .navbar-nav .active{
-  border-bottom: 2px solid orange;
+  border-bottom: 2px solid orange !important;
+}
+
+.navbar-default .navbar-nav>li>a{
+  transition: all 300ms;
+  border-bottom: 2px solid transparent;
 }
 
 .navbar-default .navbar-nav>li>a:hover{
@@ -50,6 +55,10 @@
  /* animation-name: rotacion;
   animation-duration: 20s;
   animation-iteration-count: infinite;*/
+}
+
+.pointer{
+  cursor: pointer;
 }
 
 /*@keyframes rotacion{

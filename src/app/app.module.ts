@@ -21,6 +21,12 @@ import { AnimalsComponent } from './components/animals/animals.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { KeepersComponent } from './components/keepers/keepers.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+
+//Servicios
+// import { UserService } from './services/user.service';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +37,9 @@ import { KeepersComponent } from './components/keepers/keepers.component';
     AnimalsComponent,
     KeepersComponent,
     ContactComponent,
-    SimpleTinyComponent
+    SimpleTinyComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +52,7 @@ import { KeepersComponent } from './components/keepers/keepers.component';
   ],
   providers: [
     appRoutingProviders
+    // UserService
   ],
   bootstrap: [AppComponent]
 })
