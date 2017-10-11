@@ -25,6 +25,23 @@
   border-bottom: 2px solid orange;
 }
 
+.imagen_for_edit img{
+  width: 6rem;
+}
+
+.avatar{
+  width: 4rem;
+  height: 4rem;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-top: 0.6rem;
+  background: rgba(0,0,0,.6);
+}
+
+.avatar img{
+  width: 4rem;
+}
+
 .boton_transiciones{
   padding: .8rem;
   background: red;

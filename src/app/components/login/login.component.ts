@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit{
 
   ngOnInit(){
     console.log('Login.component cargado...');
-    console.log(this._userService.getIdentity());
-    console.log(this._userService.getToken());
+    // console.log(this._userService.getIdentity());
+    // console.log(this._userService.getToken());
   }
 
   onSubmit(){
@@ -42,13 +42,14 @@ export class LoginComponent implements OnInit{
 
         if(!this.identity || !this.identity._id){
           console.log('NO se ha podido iniciar session');
+          this.status = 'error';
         }else{
           this.identity.password = '';
           localStorage.setItem('identity', JSON.stringify(this.identity));
               //Conseguir el tokken
              this._userService.signup(this.user, 'true').subscribe(
               response => {
-                console.log(response)
+                // console.log(response)
                 this.token = response.token;
 
                 if(this.token.length <= 0){
