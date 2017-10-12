@@ -7,10 +7,13 @@ import { AnimalService } from '../../../services/animal.service';
 import { UploadService } from '../../../services/upload.service';
 import { Animal } from '../../../models/animal';
 
+import { fadeLateral } from '../../animation';
+
 @Component({
   selector: 'admin-add',
   templateUrl: './add.component.html',
-  providers: [UserService, AnimalService, UploadService]
+  providers: [UserService, AnimalService, UploadService],
+  animations: [fadeLateral]
 })
 export class AddComponent implements OnInit{
   public title: string;
@@ -28,7 +31,7 @@ export class AddComponent implements OnInit{
     private _uploadService: UploadService
   ){
     this.title = 'Agregar';
-    this.animal = new Animal('','','',2017,'','');
+    this.animal = new Animal('','','',0,'','');
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this.url = GLOBAL.url;
@@ -40,7 +43,7 @@ export class AddComponent implements OnInit{
   }
 
   onSubmit(){
-    console.log(this.animal)
+    // console.log(this.animal)
 
     this._animalService.addAnimal(this.token, this.animal).subscribe(
       response => {
@@ -57,7 +60,7 @@ export class AddComponent implements OnInit{
             this._uploadService.makeFileRequest(`${this.url}upload-image-animal/${this.animal._id}`, [], this.filesToUpload, this.token, 'image')
             .then((result: any) => {
               this.animal.image = result.image;
-              console.log(this.animal);
+              // console.log(this.animal);
               this._router.navigate(['/admin-panel/listado']);
             })
           }
@@ -77,7 +80,7 @@ export class AddComponent implements OnInit{
   public filesToUpload: Array<File>;
   fileChangeEvent(fileInput: any){
     this.filesToUpload = <Array<File>>fileInput.target.files;
-    console.log(this.filesToUpload);
+    // console.log(this.filesToUpload);
   }
 
 

@@ -1,4 +1,4 @@
-<div class="col-lg-10">
+<div class="col-lg-10" [@fadeLateral]>
   <h3>{{title}}</h3>
 
   <form #addForm="ngForm" (ngSubmit)="onSubmit()" >
@@ -23,6 +23,13 @@
         El año es obligatorio
       </span>
     </p>
+
+    <div class="" *ngIf="isEdit && animal.image" >
+      <div class="imagen_for_edit">
+        <img src="{{url + 'get-image-animal/' + animal.image}}" alt="">
+      </div>
+    </div>
+
     <p>
       <label for="">Imagen del animal</label>
       <input type="file" placeholder="Subir imagen..." (change)="fileChangeEvent($event)">

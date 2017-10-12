@@ -63,4 +63,8 @@ export class UserService{
     return this._http.put(`${this.url}update-user/${userToUpdate._id}`, params, {headers: headers}).map(res => res.json());
   }
 
+  getKeepers(){
+    return this._http.get(`${this.url}keepers`).map(res => res.json());
+  }
+
 }

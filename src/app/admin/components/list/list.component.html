@@ -1,5 +1,16 @@
-<div class="col-lg-12">
+<div class="col-lg-12" [@fadeLateral]>
   <h3>{{title}}</h3>
+
+  <div class="row">
+    <div class="col-lg-2">Buscar:</div>
+    <div class="col-lg-3">
+      <input type="text" [(ngModel)]="busqueda">
+    </div>
+    <div class="label label-success" *ngIf="busqueda">
+      Termino de busqueda: <strong>{{busqueda}}</strong>
+    </div>
+  </div>
+  <br>
 
   <table class="table table-hover">
     <thead class="thead-default">
@@ -10,7 +21,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let animal of animals">
+      <tr *ngFor="let animal of animals | search: busqueda">
         <td>{{animal.name}}</td>
         <td>{{animal.year}}</td>
         <td>
@@ -22,10 +33,32 @@
             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
             Eitar
           </a>
-          <a [routerLink]="['/']" class="btn btn-sm btn-danger">
+          <a href="#myModal-{{animal._id}}" role="button" class="btn btn-sm btn-danger" data-toggle="modal">
             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
             Borrar
           </a>
+           
+          <!-- Modal HTML -->
+          <div id="myModal-{{animal._id}}" class="modal fade">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title">¿Estas seguro?</h4>
+                      </div>
+                      <div class="modal-body">
+                          <p>Seguro que quieres eliminar el animal <strong>{{animal.name}}</strong>?</p>
+                          <p class="text-warning"><small>Si borras este animal no podrás recuperarlo</small></p>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                          <button type="button" class="btn btn-danger" (click)="deleteAnimal(animal._id)">Borrar</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+
         </td>
       </tr>
     </tbody>

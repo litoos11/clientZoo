@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit{
   ){
     this.title = 'Registo';
     this.user = new User('','','','','','ROLE_USER','');
+    // ROLE debe de pasarlo desde el form html
   }
 
   ngOnInit(){

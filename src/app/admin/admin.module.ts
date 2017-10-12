@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { AdminRoutingModule } from './admin-routing.module';
 
@@ -15,19 +17,22 @@ import { EditComponent } from './components/edit/edit.component';
 //Servicios
 import { AdminGuard } from '../services/admin.guard';
 import { UserService } from '../services/user.service';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
     MainComponent,
     ListComponent,
     AddComponent,
-    EditComponent
+    EditComponent,
+    SearchPipe
   ],
   imports: [
     CommonModule,
     FormsModule,
     HttpModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    BrowserAnimationsModule
   ],
   exports: [
     MainComponent,

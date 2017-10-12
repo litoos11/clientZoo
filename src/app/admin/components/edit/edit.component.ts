@@ -7,10 +7,13 @@ import { AnimalService } from '../../../services/animal.service';
 import { UploadService } from '../../../services/upload.service';
 import { Animal } from '../../../models/animal';
 
+import { fadeLateral } from '../../animation';
+
 @Component({
   selector: 'admin-edit',
   templateUrl: '../add/add.component.html',
-  providers: [UserService, AnimalService, UploadService]
+  providers: [UserService, AnimalService, UploadService],
+  animations: [fadeLateral]
 })
 export class EditComponent implements OnInit{
   public title: string;
@@ -19,6 +22,7 @@ export class EditComponent implements OnInit{
   public token;
   public url: string;
   public status;
+  public isEdit;
 
   constructor(
     private _route: ActivatedRoute,
@@ -27,8 +31,9 @@ export class EditComponent implements OnInit{
     private _animalService: AnimalService,
     private _uploadService: UploadService
   ){
+    this.isEdit = true;
     this.title = 'Editar';
-    // this.animal = new Animal('','','',2017,'','');
+    this.animal = new Animal('','','',0,'','');
     // this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this.url = GLOBAL.url;
@@ -61,8 +66,7 @@ export class EditComponent implements OnInit{
   }
 
   onSubmit(){
-    // console.log(this.animal);
-    // let idAnimal = this.animal._id;
+    // let id = this.animal._id;
 
     this._animalService.editAnimal(this.token, this.animal._id, this.animal).subscribe(
       response => {
@@ -71,6 +75,7 @@ export class EditComponent implements OnInit{
         }else{
           this.status = "success";
           this.animal = response.animal;
+    console.log(this.animal)
 
           //Subir la imagen del animal
           if(!this.filesToUpload){
@@ -79,7 +84,7 @@ export class EditComponent implements OnInit{
             this._uploadService.makeFileRequest(`${this.url}upload-image-animal/${this.animal._id}`, [], this.filesToUpload, this.token, 'image')
             .then((result: any) => {
               this.animal.image = result.image;
-              console.log(this.animal);
+              console.log('this.animal');
               this._router.navigate(['/animal', this.animal._id]);
             })
           }

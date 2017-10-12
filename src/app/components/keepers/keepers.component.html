@@ -1,4 +1,20 @@
 <div class="col-lg-12" [@fadeIn]>
   <h1>{{title}}</h1>
+
+<!-- <div class="col-lg-4 animal_item pull-left" > -->
+  <div class="col-md-3" *ngFor="let keeper of keepers">
+    <div class="thumbnail">
+    	<div class="image_mask">
+      	<img src="{{url + 'get-image-user/' + keeper.image}}" alt="{{keeper.name}}" *ngIf="keeper.image">
+      	<img src="http://via.placeholder.com/200x200" alt="{{keeper.name}}" *ngIf="!keeper.image">
+    	</div>
+      <div class="caption">
+        <h3>{{keeper.name + ' ' + keeper.surname}}</h3>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+
+
 </div>
 
